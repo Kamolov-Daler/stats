@@ -1,5 +1,5 @@
-module guthub.com/Kamolov-Daler/stats
+module github.com/Kamolov-Daler/stats/v2
 
 go 1.16
 
-require github.com/Kamolov-Daler/bank v0.0.0-20210402184602-6002310bd27b // indirect
+require github.com/Kamolov-Daler/bank/v2 v2.0.0 // indirect

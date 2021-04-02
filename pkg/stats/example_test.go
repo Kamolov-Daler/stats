@@ -3,7 +3,7 @@ package stats
 import (
 	"fmt"
 
-	"github.com/Kamolov-Daler/bank/pkg/types"
+	"github.com/Kamolov-Daler/bank/v2/pkg/types"
 )
 
 func ExampleAvg() {
