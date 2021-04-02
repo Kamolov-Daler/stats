@@ -1,7 +1,7 @@
 package stats
 
 import (
-	"github.com/Kamolov-Daler/bank/pkg/types"
+	"github.com/Kamolov-Daler/bank/v2/pkg/types"
 )
 
 // Avg рассчитывает среднюю сумму платежа.
@@ -9,7 +9,9 @@ func Avg(payments []types.Payment) types.Money {
 	result := types.Money(0)
 
 	for _, papayment := range payments {
-		result += papayment.Amount
+		if papayment.Status != types.StatusFail {
+			result += papayment.Amount
+		}
 	}
 	result = result / types.Money(len(payments))
 	return result
@@ -21,7 +23,9 @@ func TotalInCategory(payments []types.Payment, category types.Category) types.Mo
 
 	for _, payment := range payments {
 		if category == payment.Category {
-			categoryResult += payment.Amount
+			if payment.Status != types.StatusFail {
+				categoryResult += payment.Amount
+			}
 		}
 	}
 	return categoryResult
