@@ -7,13 +7,15 @@ import (
 // Avg рассчитывает среднюю сумму платежа.
 func Avg(payments []types.Payment) types.Money {
 	result := types.Money(0)
+	iter := types.Money(0)
 
 	for _, papayment := range payments {
 		if papayment.Status != types.StatusFail {
+			iter++
 			result += papayment.Amount
 		}
 	}
-	result = result / types.Money(len(payments))
+	result = result / iter
 	return result
 }
 
