@@ -55,6 +55,19 @@ func PeriodsDynamic(
 	result := map[types.Category]types.Money{}
 
 	for key := range second {
+		_, one := first[key]
+		_, two := second[key]
+
+		if !one {
+			result[key] = second[key]
+			continue
+		}
+
+		if !two {
+			result[key] = -first[key]
+			continue
+		}
+
 		result[key] = second[key] - first[key]
 	}
 
