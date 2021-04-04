@@ -60,6 +60,10 @@ func PeriodsDynamic(
 
 	for key := range result {
 		result[key] = second[key] - first[key]
+		if first[key] == 0 && second[key] == 0 {
+			delete(result, key)
+		}
+
 	}
 	return result
 }
